@@ -444,6 +444,8 @@ class LoRAFinetuneRecipeDistributed(FTRecipeInterface):
             )
             if not packed
             else None,
+            num_workers=4,
+            pin_memory=True,
         )
 
         if self._is_rank_zero:
