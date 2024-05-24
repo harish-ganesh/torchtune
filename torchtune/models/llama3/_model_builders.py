@@ -117,7 +117,7 @@ def lora_llama3_8b(
         rope_base=500000.0,
         lora_rank=lora_rank,
         lora_alpha=lora_alpha,
-        lora_dropout=0.05,
+        lora_dropout=0.1,
         quantize_base=quantize_base,
     )
 
