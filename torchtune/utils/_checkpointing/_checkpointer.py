@@ -466,16 +466,16 @@ class FullModelHFCheckpointer(_CheckpointerInterface):
             split_state_dicts[cpt_idx].update({key: weight})
 
         # write the partitioned state dicts to the right checkpoint file
-        for cpt_idx, model_state_dict in split_state_dicts.items():
-            output_path = Path.joinpath(
-                self._output_dir, f"hf_model_{cpt_idx}_{epoch}"
-            ).with_suffix(".pt")
-            torch.save(model_state_dict, output_path)
-            logger.info(
-                "Model checkpoint of size "
-                f"{os.path.getsize(output_path) / 1000**3:.2f} GB "
-                f"saved to {output_path}"
-            )
+        # for cpt_idx, model_state_dict in split_state_dicts.items():
+        #     output_path = Path.joinpath(
+        #         self._output_dir, f"hf_model_{cpt_idx}_{epoch}"
+        #     ).with_suffix(".pt")
+        #     torch.save(model_state_dict, output_path)
+        #     logger.info(
+        #         "Model checkpoint of size "
+        #         f"{os.path.getsize(output_path) / 1000**3:.2f} GB "
+        #         f"saved to {output_path}"
+        #     )
 
         if utils.ADAPTER_KEY in state_dict:
             # Save torchtune format adapter weights even if we save PEFT format
